@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>인덱스 페이지</title>
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .container {
+      max-width: 400px;
+    }
+    .btn {
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>홈</h2>
+    </div>
+    <div class="d-flex flex-column align-items-center"> <!-- 버튼을 세로로 정렬 -->
+        <a th:href="@{/login}" class="btn btn-primary mb-3">로그인</a>
+        <a th:href="@{/join}" class="btn btn-primary mb-3">회원가입</a>
+        <a th:href="@{/}" class="btn btn-secondary">내 정보</a>
+    </div>
+</div>
+</body>
+</html>
