@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 페이지</title>
+  <link th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+        .container {
+            max-width: 400px;
+        }
+        .btn {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="py-5 text-center">
+    <h2>Form Login</h2>
+  </div>
+  <form action="/loginProc" method="post">
+    <div class="form-group">
+      <input type="text" name="username" placeholder="Username" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <input type="password" name="password" placeholder="Password" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <div class="text-center">
+        <button class="btn btn-primary" type="submit">로그인</button>
+      </div>
+    </div>
+  </form>
+
+  <br />
+
+  <div class="py-5 text-center">
+    <h2>Social Login</h2>
+  </div>
+  <a href="/oauth2/authorization/google" >
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/google-login-button-png-1.png"
+       alt="google" width="357px" height="117px">
+  </a>
+  <br />
+  <a href="/oauth2/authorization/facebook">
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/login-with-facebook-button-png-transparent-1.png"
+       alt="facebook" width="357px" height="117px">
+  </a>
+  <br />
+  <a href="/oauth2/authorization/naver">
+    <img src="https://blogfiles.pstatic.net/MjAyMDA4MDRfMzMg/MDAxNTk2NTEyOTY4MDMx.vhXHCulffijGUnvlaBR2jW4__Lkz8R3ZTaEDcTeNV2gg.Wt_HNl_zktUJUMrYGkVmqJ-PhxKv_s4A7gG1uPKMZaQg.PNG.getinthere/naver_button.png"
+       alt="naver" width="357px" height="50px">
+  </a>
+  <br />
+
+</div>
+</body>
+</html>
