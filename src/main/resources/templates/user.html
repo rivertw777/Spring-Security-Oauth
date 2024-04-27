@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>유저 페이지</title>
+    <link th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>유저 정보</h2>
+    </div>
+    <div>
+        <p>Username: <span th:text="${user.username}"></span></p>
+        <p>Email: <span th:text="${user.email}"></span></p>
+        <p>Authorities: <span th:text="${user.roles}"></span></p>
+        <p>OAuth2:
+            <span th:if="${user.provider}" th:text="${user.provider}"></span>
+            <span th:unless="${user.provider}" th:text="'None'"></span>
+        </p>
+    </div>
+</div>
+</body>
+</html>
