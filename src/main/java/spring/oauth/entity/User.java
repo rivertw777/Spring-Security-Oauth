@@ -1,4 +1,4 @@
-package spring.oauth.model.entity;
+package spring.oauth.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,13 +12,13 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import spring.oauth.model.Role;
+import spring.oauth.enums.Role;
 
 @Getter
 @Entity
 @Table(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +30,9 @@ public class User {
     @Column(name = "password", length = 60)
     private String password;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "roles")
     private List<Role> roles = new ArrayList<>();
 
@@ -40,10 +43,17 @@ public class User {
     private String providerId;
 
     @Builder
-    public User(String username, String password, List<Role> roles) {
+    public User(String username, String password, List<Role> roles, String email, String provider, String providerId) {
         this.username = username;
         this.password = password;
         this.roles = roles;
+        this.email = email;
+        this.provider = provider;
+        this.providerId = providerId;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

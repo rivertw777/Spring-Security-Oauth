@@ -1,24 +1,44 @@
 package spring.oauth.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import spring.oauth.dto.UserSignUpRequest;
 import spring.oauth.service.UserService;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
-@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
 
-    // 회원 가입
-    @PostMapping("")
-    public void signUp(@Valid @RequestBody UserSignUpRequest requestParam) {
-        userService.signUp(requestParam);
+    // 인덱스 페이지
+    @GetMapping("")
+    public String index() {
+        return "index";
     }
+
+    // 로그인 페이지
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    // 회원가입 페이지
+    @GetMapping("/join")
+    public String join() {
+        return "join";
+    }
+
+    // 회원 가입
+    @PostMapping("/joinProc")
+    public String joinProc(@Valid @ModelAttribute UserSignUpRequest requestParam) {
+        System.out.println(requestParam);
+        userService.signUp(requestParam);
+        return "redirect:/";
+    }
+
 }

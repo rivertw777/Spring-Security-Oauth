@@ -1,4 +1,4 @@
-package spring.oauth.model;
+package spring.oauth.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

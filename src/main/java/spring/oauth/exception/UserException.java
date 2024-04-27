@@ -1,4 +1,4 @@
-package spring.exception;
+package spring.oauth.exception;
 
 import lombok.experimental.StandardException;
 

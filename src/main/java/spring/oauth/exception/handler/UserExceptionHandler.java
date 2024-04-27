@@ -1,12 +1,12 @@
-package spring.exception.handler;
+package spring.oauth.exception.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
-import spring.exception.UserException;
-import spring.exception.dto.CustomErrorResponse;
+import spring.oauth.exception.UserException;
+import spring.oauth.exception.dto.CustomErrorResponse;
 
 @ControllerAdvice
 @RestController
