@@ -1,12 +1,16 @@
 package spring.oauth.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
+import spring.oauth.config.auth.CustomUserDetails;
 import spring.oauth.dto.UserSignUpRequest;
+import spring.oauth.entity.User;
 import spring.oauth.service.UserService;
 
 @Controller
@@ -39,6 +43,13 @@ public class UserController {
         System.out.println(requestParam);
         userService.signUp(requestParam);
         return "redirect:/";
+    }
+
+    // 유저 페이지
+    @GetMapping("/user")
+    public void user(@AuthenticationPrincipal CustomUserDetails principal, Model model) {
+        User user = principal.getUser();
+        model.addAttribute("user", user);
     }
 
 }
