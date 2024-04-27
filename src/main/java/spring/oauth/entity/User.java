@@ -24,10 +24,10 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, name = "username", length = 10)
+    @Column(unique = true, name = "username", length = 50)
     private String username;
 
-    @Column(name = "password", length = 60)
+    @Column(name = "password", length = 20)
     private String password;
 
     @Column(name = "email")

@@ -5,13 +5,40 @@
   <title>로그인 페이지</title>
   <link th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" rel="stylesheet">
   <style>
-        .container {
-            max-width: 400px;
-        }
-        .btn {
-            width: 150px;
-        }
-    </style>
+    .container {
+      max-width: 400px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid white;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      width: 100%;
+    }
+    .google-btn {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .google-btn img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -31,28 +58,28 @@
         <button class="btn btn-primary" type="submit">로그인</button>
       </div>
     </div>
+    <div class="form-group">
+      <div class="text-center">
+        <a th:href="@{/join}" class="btn btn-primary mb-3">회원가입</a>
+      </div>
+    </div>
   </form>
-
-  <br />
 
   <div class="py-5 text-center">
     <h2>Social Login</h2>
   </div>
-  <a href="/oauth2/authorization/google" >
-    <img src="https://pngimage.net/wp-content/uploads/2018/06/google-login-button-png-1.png"
-       alt="google" width="357px" height="117px">
+  <a href="/oauth2/authorization/google" class="google-btn">
+    <img th:src="@{/images/google-signin-button.png}" src="/images/google-signin-button.png" alt="google">
+    Sign in with Google
   </a>
   <br />
   <a href="/oauth2/authorization/facebook">
-    <img src="https://pngimage.net/wp-content/uploads/2018/06/login-with-facebook-button-png-transparent-1.png"
-       alt="facebook" width="357px" height="117px">
+    <img th:src="@{/images/facebook-login-button.png}" src="/images/facebook-login-button.png" alt="facebook" width="357px" height="117px">
   </a>
   <br />
   <a href="/oauth2/authorization/naver">
-    <img src="https://blogfiles.pstatic.net/MjAyMDA4MDRfMzMg/MDAxNTk2NTEyOTY4MDMx.vhXHCulffijGUnvlaBR2jW4__Lkz8R3ZTaEDcTeNV2gg.Wt_HNl_zktUJUMrYGkVmqJ-PhxKv_s4A7gG1uPKMZaQg.PNG.getinthere/naver_button.png"
-       alt="naver" width="357px" height="50px">
+    <img th:src="@{/images/naver-login-button.png}" src="/images/naver-login-button.png" alt="naver" width="357px" height="50px">
   </a>
-  <br />
 
 </div>
 </body>

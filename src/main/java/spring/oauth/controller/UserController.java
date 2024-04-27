@@ -48,6 +48,7 @@ public class UserController {
     // 유저 페이지
     @GetMapping("/user")
     public void user(@AuthenticationPrincipal CustomUserDetails principal, Model model) {
+        System.out.println(principal.getAttributes());
         User user = principal.getUser();
         model.addAttribute("user", user);
     }

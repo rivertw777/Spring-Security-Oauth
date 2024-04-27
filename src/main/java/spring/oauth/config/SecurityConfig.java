@@ -19,7 +19,7 @@ import spring.oauth.config.oauth.CustomOauth2UserService;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private CustomOauth2UserService customOauth2UserService;
+    private final CustomOauth2UserService customOauth2UserService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -36,9 +36,11 @@ public class SecurityConfig {
                 .successHandler(authenticationSuccessHandler())
                 .and()
                 // Oauth2 로그인
-                .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/login")
-                );
+                .oauth2Login()
+                .loginPage("/login")
+                .successHandler(authenticationSuccessHandler())
+                .userInfoEndpoint()
+                .userService(customOauth2UserService);
         return http.build();
     }
 
