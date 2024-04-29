@@ -27,6 +27,9 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
     // userRequest 는 code를 받아서 accessToken을 응답 받은 객체
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
+        String accessToken = userRequest.getAccessToken().getTokenValue();
+        System.out.println(accessToken);
+
         OAuth2User oAuth2User = super.loadUser(userRequest); // google의 회원 프로필 조회
 
         // code를 통해 구성한 정보
@@ -72,7 +75,6 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
                     .provider(oAuth2UserInfo.getProvider())
                     .providerId(oAuth2UserInfo.getProviderId())
                     .build();
-
             userRepository.save(user);
         }
         return new CustomUserDetails(user, oAuth2User.getAttributes());

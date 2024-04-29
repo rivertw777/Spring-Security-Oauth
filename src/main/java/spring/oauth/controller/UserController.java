@@ -25,11 +25,15 @@ public class UserController {
         return "index";
     }
 
-    // 로그인 페이지
+    // 폼 로그인 페이지
     @GetMapping("/login")
     public String login() {
         return "login";
     }
+
+    // 소셜 로그인 페이지
+    @GetMapping("/login/social")
+    public String socialLogin() { return "socialLogin";}
 
     // 회원가입 페이지
     @GetMapping("/join")

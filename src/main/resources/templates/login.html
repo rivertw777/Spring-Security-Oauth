@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>로그인 페이지</title>
+  <title>폼 로그인 페이지</title>
   <link th:href="@{/css/bootstrap.min.css}" href="css/bootstrap.min.css" rel="stylesheet">
   <style>
     .container {
@@ -19,24 +19,6 @@
       justify-content: center;
       text-decoration: none;
       width: 100%;
-    }
-    .google-btn {
-      background-color: white;
-      color: black;
-      padding: 10px 20px;
-      border: 1px solid black;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-    }
-    .google-btn img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
     }
   </style>
 </head>
@@ -64,22 +46,6 @@
       </div>
     </div>
   </form>
-
-  <div class="py-5 text-center">
-    <h2>Social Login</h2>
-  </div>
-  <a href="/oauth2/authorization/google" class="google-btn">
-    <img th:src="@{/images/google-signin-button.png}" src="/images/google-signin-button.png" alt="google">
-    Sign in with Google
-  </a>
-  <br />
-  <a href="/oauth2/authorization/facebook">
-    <img th:src="@{/images/facebook-login-button.png}" src="/images/facebook-login-button.png" alt="facebook" width="357px" height="117px">
-  </a>
-  <br />
-  <a href="/oauth2/authorization/naver">
-    <img th:src="@{/images/naver-login-button.png}" src="/images/naver-login-button.png" alt="naver" width="357px" height="50px">
-  </a>
 
 </div>
 </body>
