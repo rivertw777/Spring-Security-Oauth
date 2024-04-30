@@ -19,7 +19,7 @@
         <p>Username: <span th:text="${user.username}"></span></p>
         <p>Email: <span th:text="${user.email}"></span></p>
         <p>Authorities: <span th:text="${user.roles}"></span></p>
-        <p>OAuth2:
+        <p>Provider:
             <span th:if="${user.provider}" th:text="${user.provider}"></span>
             <span th:unless="${user.provider}" th:text="'None'"></span>
         </p>

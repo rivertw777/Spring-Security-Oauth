@@ -8,7 +8,7 @@
     .container {
       max-width: 400px;
     }
-    .google-btn {
+    .btn {
       background-color: white;
       color: black;
       padding: 10px 20px;
@@ -21,7 +21,7 @@
       justify-content: center;
       text-decoration: none;
     }
-    .google-btn img {
+    .btn img {
       width: 20px;
       height: 20px;
       margin-right: 10px;
@@ -34,18 +34,26 @@
     <div class="py-5 text-center">
         <h2>Social Login</h2>
     </div>
-    <a href="/oauth2/authorization/google" class="google-btn">
+    <a href="/oauth2/authorization/google" class="btn">
         <img th:src="@{/images/google-signin-button.png}" src="/images/google-signin-button.png" alt="google">
         Sign in with Google
     </a>
     <br />
-    <a href="/oauth2/authorization/facebook">
-        <img th:src="@{/images/facebook-login-button.png}" src="/images/facebook-login-button.png" alt="facebook" width="357px" height="117px">
+    <a href="/oauth2/authorization/facebook" class="btn">
+        <img th:src="@{/images/facebook-login-button.png}" src="/images/facebook-login-button.png" alt="facebook">
+        Sign in with FaceBook
     </a>
     <br />
-    <a href="/oauth2/authorization/naver">
-        <img th:src="@{/images/naver-login-button.png}" src="/images/naver-login-button.png" alt="naver" width="357px" height="50px">
+    <a href="/oauth2/authorization/naver" class="btn">
+        <img th:src="@{/images/naver-login-button.png}" src="/images/naver-login-button.png" alt="naver">
+        Sign in with Naver
     </a>
+    <br />
+    <a href="/oauth2/authorization/kakao" class="btn">
+        <img th:src="@{/images/kakao-login-button.png}" src="/images/kakao-login-button.png" alt="naver">
+        Sign in with Kakao
+    </a>
+    <br />
 
 </div>
 </body>

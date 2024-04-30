@@ -46,13 +46,12 @@ public class UserController {
     public String joinProc(@Valid @ModelAttribute UserSignUpRequest requestParam) {
         System.out.println(requestParam);
         userService.signUp(requestParam);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     // 유저 페이지
     @GetMapping("/user")
     public void user(@AuthenticationPrincipal CustomUserDetails principal, Model model) {
-        System.out.println(principal.getAttributes());
         User user = principal.getUser();
         model.addAttribute("user", user);
     }
