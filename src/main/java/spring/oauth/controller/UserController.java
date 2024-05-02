@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.ResponseBody;
 import spring.oauth.config.auth.CustomUserDetails;
+import spring.oauth.dto.TestResponse;
 import spring.oauth.dto.UserSignUpRequest;
 import spring.oauth.entity.User;
 import spring.oauth.service.UserService;
@@ -54,6 +56,13 @@ public class UserController {
     public void user(@AuthenticationPrincipal CustomUserDetails principal, Model model) {
         User user = principal.getUser();
         model.addAttribute("user", user);
+    }
+
+    // 인가 필터 테스트 API
+    @GetMapping("/api/test")
+    @ResponseBody
+    public TestResponse testAuthorization(@AuthenticationPrincipal CustomUserDetails principal) {
+        return new TestResponse(principal.getUsername());
     }
 
 }

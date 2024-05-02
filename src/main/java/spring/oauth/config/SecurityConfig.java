@@ -1,6 +1,5 @@
 package spring.oauth.config;
 
-import static org.antlr.v4.runtime.atn.SemanticContext.and;
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 
 import jakarta.servlet.ServletException;
