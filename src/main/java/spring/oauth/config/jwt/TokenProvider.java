@@ -2,6 +2,7 @@ package spring.oauth.config.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -51,7 +52,7 @@ public class TokenProvider {
         try {
             Jwts.parserBuilder().setSigningKey(jwtSecretKey).build().parseClaimsJws(token);
         } catch (ExpiredJwtException | MalformedJwtException | UnsupportedJwtException | SignatureException e) {
-            throw new IllegalArgumentException("유효하지 않은 토큰입니다.");
+            throw new JwtException("유효하지 않은 토큰입니다.");
         }
     }
 }

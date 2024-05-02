@@ -5,6 +5,7 @@ import static spring.oauth.config.jwt.JwtProperties.HEADER_STRING;
 import static spring.oauth.config.jwt.JwtProperties.TOKEN_PREFIX;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -52,8 +53,10 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
             // 사용자 인증 정보 저장
             SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (IllegalArgumentException e) {
+        } catch (JwtException e) {
             response.setStatus(SC_UNAUTHORIZED);
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(e.getMessage());
         }
         chain.doFilter(request, response);
     }
