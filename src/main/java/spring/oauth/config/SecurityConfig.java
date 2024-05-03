@@ -41,6 +41,8 @@ public class SecurityConfig {
                 .exceptionHandling()
                 .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and()
+                // 인가 필터 추가
+                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 // Form 로그인
                 .formLogin()
                 .loginPage("/login")
@@ -52,11 +54,7 @@ public class SecurityConfig {
                 .loginPage("/login")
                 .successHandler(oAuth2LoginSuccessHandler)
                 .userInfoEndpoint()
-                .userService(customOauth2UserService)
-                // 인가 필터 추가
-                .and()
-                .and()
-                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
+                .userService(customOauth2UserService);
         return http.build();
     }
 

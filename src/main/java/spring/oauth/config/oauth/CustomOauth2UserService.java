@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import spring.oauth.config.auth.CustomUserDetails;
 import spring.oauth.config.oauth.provider.FaceBookUserInfo;
 import spring.oauth.config.oauth.provider.GoogleUserInfo;
+import spring.oauth.config.oauth.provider.KakaoUserInfo;
 import spring.oauth.config.oauth.provider.NaverUserInfo;
 import spring.oauth.config.oauth.provider.OAuth2UserInfo;
 import spring.oauth.enums.Role;
@@ -40,7 +41,7 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
         } else if (userRequest.getClientRegistration().getRegistrationId().equals("naver")){
             oAuth2UserInfo = new NaverUserInfo((Map)oAuth2User.getAttributes().get("response"));
         } else if (userRequest.getClientRegistration().getRegistrationId().equals("kakao")){
-
+            oAuth2UserInfo = new KakaoUserInfo(oAuth2User.getAttributes());
         }
 
         // 유저 조회
@@ -50,6 +51,7 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService {
         User user;
         if (userOptional.isPresent()) {
             user = userOptional.get();
+            user.setEmail(oAuth2UserInfo.getEmail());
         } else {
             user = User.builder()
                     .username(oAuth2UserInfo.getProvider() + "_" + oAuth2UserInfo.getProviderId())
